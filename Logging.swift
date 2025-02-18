@@ -18,23 +18,32 @@ func calculateMaxLogs() {
     
     // Welcome message
     print("This program will calculate the maximum number of logs that can fit into a truck based on certain lengths.")
-    print("Please enter the log length you will be using (0.25, 0.5, or 1):")
     
-    // Read user input and see if it is invalid using guard
-    guard let logLengthString = readLine(), let logLength = Double(logLengthString),
-          logLength == 0.25 || logLength == 0.5 || logLength == 1 else {
-        print("Invalid input: \(logLengthString). Log length must be 0.25, 0.5, or 1.")
-        return
-    }
+    var logLength: Double?
+    var logLengthString: String?
+    
+    repeat {
+        print("Please enter the log length you will be using (0.25, 0.5, or 1):")
+        logLengthString = readLine()
+        
+        if let input = logLengthString, let length = Double(input), length == 0.25 || length == 0.5 || length == 1 {
+            logLength = length
+        } else {
+            print("Invalid input: \(logLengthString ?? "nil"). Log length must be 0.25, 0.5, or 1.")
+        }
+    } while logLength == nil
+    
+    // Display the original input
+    print("You entered: \(logLengthString!)")
     
     // Calculate the weight per log
-    let weightPerLog = weightPerMeter * logLength
+    let weightPerLog = weightPerMeter * logLength!
     
     // Calculate the number of logs
     let numLogs = Int(maxWeight / weightPerLog)
     
     // Display the maximum number of logs
-    print("The truck will be able to take \(numLogs) logs that are \(logLength) meter(s) in length.")
+    print("The truck will be able to take \(numLogs) logs that are \(logLength!) meter(s) in length.")
 }
 
 // Call function
