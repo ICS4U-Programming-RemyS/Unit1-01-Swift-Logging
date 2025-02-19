@@ -16,7 +16,7 @@ let QUARTER_LOG_LENGTH: Double = 0.25
 let HALF_LOG_LENGTH: Double = 0.5
 let FULL_LOG_LENGTH: Double = 1.0
 
-func Logging() {
+func logging() {
     // Welcome message
     print("This program will calculate the maximum number of logs that can fit into a truck based on certain lengths.")
 
@@ -43,7 +43,8 @@ func Logging() {
         }
 
         // Check if log length is valid
-        if logLengthDoubleLoop == QUARTER_LOG_LENGTH || logLengthDoubleLoop == HALF_LOG_LENGTH || logLengthDoubleLoop == FULL_LOG_LENGTH {
+        if logLengthDoubleLoop == QUARTER_LOG_LENGTH || logLengthDoubleLoop == HALF_LOG_LENGTH
+        || logLengthDoubleLoop == FULL_LOG_LENGTH {
             // Store valid log length
             logLengthDouble = logLengthDoubleLoop
             // Exit loop
@@ -64,4 +65,4 @@ func Logging() {
 }
 
 // Call function
-Logging()
+logging()
