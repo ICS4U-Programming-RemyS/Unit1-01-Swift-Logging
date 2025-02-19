@@ -31,15 +31,15 @@ func logging() {
         // Read user input with guard
         guard let logLengthAsString = readLine() else {
             print("Invalid input. Please enter a valid log length.")
-            // exit guard and stay in loop
-            return
+            // Continue to the next part of the loop
+            continue
         }
 
         // Safely convert user input to double
         guard let logLengthDoubleLoop = Double(logLengthAsString) else {
             print("Invalid input: \(logLengthAsString). Log length must be 0.25, 0.5, or 1.0.")
-            // exit guard and stay in loop
-            return
+            // Continue to the next part of the loop
+            continue
         }
 
         // Check if log length is valid
